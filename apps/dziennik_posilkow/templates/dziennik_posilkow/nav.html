@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<h2>
+<a href="{% url 'dziennik_posilkow:home' %}">Strona Domowa</a>
+{% if zawodnik %}
+&gt; <a href="{% url 'dziennik_posilkow:zawodnik_view' zawodnik.id %}">{{ zawodnik.imie }}</a>
+{% endif %}
+{% if title %}
+&gt; {{ title }}
+{% endif %}
+</h2>

@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include "dziennik_posilkow/nav.html" with zawodnik=zawodnik title="Edytuj/Dodaj Zawodnika" %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Potwierdz" />
+</form>
+
+<!-- <form method="post">{% csrf_token %}
+  <div class="form-group">
+    <label for="imie">Imie</label>
+    <input type="text" class="form-control" id="imie" placeholder="Imie">
+   </div>
+  <div class="form-group">
+    <label for="nazwisko">Nazwisko</label>
+    <input type="text" class="form-control" id="nazwisko" placeholder="Nazwisko">
+   </div>
+   <div class="form-group">
+    <label for="wiek">Wiek</label>
+    <input type="text" class="form-control" id="wiek" placeholder="Wiek">
+   </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <input type="submit" value="Potwierdz" />
+</form> -->
+
+{% endblock %}

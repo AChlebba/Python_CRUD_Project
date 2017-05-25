@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% extends "base.html" %}
+
+{% block content %}
+{% include "dziennik_posilkow/nav.html" with zawodnik=zawodnik title="Usun" %}
+
+<form method="post">{% csrf_token %}
+    Jestes pewien ze chcesz usunac zawodnika ?
+	<input type="submit" class="btn btn-danger" value="Potwierdz">
+</form>
+{% endblock %}

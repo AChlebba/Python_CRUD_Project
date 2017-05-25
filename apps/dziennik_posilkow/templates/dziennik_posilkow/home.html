@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% extends "base.html" %}
+
+{% block title %}Zawodnik List{% endblock %}
+
+{% block content %}
+{% include "dziennik_posilkow/nav.html" %}
+
+Zawodnicy i posilki
+
+<ul>
+    {% for zawodnik in zawodnicy %}
+	<div class="container" width="auto">
+	<div class="jumbotron">
+		 <ul class="list-group">
+			<li class="list-group-item" >{{ zawodnik.imie }}</li>
+			<li class="list-group-item">{{ zawodnik.nazwisko }}</li>
+			<li class="list-group-item">{{ zawodnik.wiek }} Lat</li>
+		</ul> 
+	<div class="btn-group" role="group" aria-label="...">
+					<a href="{% url 'dziennik_posilkow:zawodnik_view' zawodnik.id %}" class="btn btn-default" role="button">pokaz</a>
+					<a href="{% url 'dziennik_posilkow:zawodnik_edit' zawodnik.id %}" class="btn btn-default" role="button">edytuj</a>
+					<a href="{% url 'dziennik_posilkow:zawodnik_delete' zawodnik.id %}" class="btn btn-danger" role="button">usun</a>
+			</div>
+		</div>
+	</div>
+		
+    {% endfor %}
+</ul>
+
+<a href="{% url 'dziennik_posilkow:zawodnik_new' %}" class="btn btn-default" role="button">Nowy zawodnik</a>
+{% endblock %}

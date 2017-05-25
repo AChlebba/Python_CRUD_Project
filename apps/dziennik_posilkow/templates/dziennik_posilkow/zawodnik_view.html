@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include "dziennik_posilkow/nav.html" with zawodnik=zawodnik title="Podglad" %}
+
+Imie: {{ zawodnik.imie }}<br>
+Nazwisko: {{ zawodnik.nazwisko }}<br>
+Wiek: {{ zawodnik.wiek }}<br>
+
+<h2>Posiłki</h2>
+<ul>
+    {% for posilek in posilki %}
+    <li>
+        {{ posilek.produkt }}<br>
+        {{ posilek.ilosc}}<br>
+		{{ posilek.kalorie}} Kalorii<br>
+        <a href="{% url 'dziennik_posilkow:posilek_edit' posilek.id %}">edytuj</a>
+        <a href="{% url 'dziennik_posilkow:posilek_delete' posilek.id %}">usun</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'dziennik_posilkow:posilek_new' zawodnik.id %}">Nowy posilek</a>
+{% endblock %}

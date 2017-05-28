@@ -7,22 +7,37 @@
 {% block content %}
 {% include "dziennik_posilkow/nav.html" with zawodnik=zawodnik title="Podglad" %}
 
-Imie: {{ zawodnik.imie }}<br>
-Nazwisko: {{ zawodnik.nazwisko }}<br>
-Wiek: {{ zawodnik.wiek }}<br>
+<div class="container">
+	<div class="jumbotron">
+
+<ul class="list-group">
+			<li class="list-group-item" >{{ zawodnik.imie }}</li>
+			<li class="list-group-item">{{ zawodnik.nazwisko }}</li>
+			<li class="list-group-item">{{ zawodnik.wiek }} Lat</li>
+		</ul> 
 
 <h2>Posiłki</h2>
 <ul>
     {% for posilek in posilki %}
     <li>
-        {{ posilek.produkt }}<br>
-        {{ posilek.ilosc}}<br>
-		{{ posilek.kalorie}} Kalorii<br>
-        <a href="{% url 'dziennik_posilkow:posilek_edit' posilek.id %}">edytuj</a>
-        <a href="{% url 'dziennik_posilkow:posilek_delete' posilek.id %}">usun</a>
+
+	<ul class="list-group">
+			<li class="list-group-item" >{{ posilek.produkt }}</li>
+			<li class="list-group-item">{{ posilek.ilosc}}</li>
+			<li class="list-group-item">{{ posilek.kalorie}} Kalorii</li>
+		</ul> 
+	
+		<div class="btn-group" role="group" aria-label="...">
+			
+					<a href="{% url 'dziennik_posilkow:posilek_edit' posilek.id %}" class="btn btn-default" role="button">edytuj</a>
+					<a href="{% url 'dziennik_posilkow:posilek_delete' posilek.id %}" class="btn btn-danger" role="button">usun</a>
+			</div>
+
     </li>
     {% endfor %}
 </ul>
+</div>
+</div>
 
-<a href="{% url 'dziennik_posilkow:posilek_new' zawodnik.id %}">Nowy posilek</a>
+<a href="{% url 'dziennik_posilkow:posilek_new' zawodnik.id %}" class="btn btn-default" >Nowy posilek</a>
 {% endblock %}

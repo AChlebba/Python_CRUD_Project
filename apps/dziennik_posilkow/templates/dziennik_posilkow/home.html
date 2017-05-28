@@ -8,11 +8,11 @@
 {% block content %}
 {% include "dziennik_posilkow/nav.html" %}
 
-Zawodnicy i posilki
+<h2>Zawodnicy i posilki</h2>
 
 <ul>
     {% for zawodnik in zawodnicy %}
-	<div class="container" width="auto">
+	<div class="container">
 	<div class="jumbotron">
 		 <ul class="list-group">
 			<li class="list-group-item" >{{ zawodnik.imie }}</li>
